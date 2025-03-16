@@ -23,7 +23,7 @@ export default function FileUploader() {
   });
 
   return (
-    <div className="p-6 max-w-lg mx-auto">
+    <div className="p-6 max-w-lg mx-auto cursor-pointer">
       <div
         {...getRootProps()}
         className={`border-2 border-dashed rounded-lg p-8 text-center ${

@@ -32,7 +32,7 @@ function App() {
             <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
               Compress your images instantly
             </h1>
-            <p className="text-lg text-gray-400 mb-8">
+            <p className="text-lg text-gray-400 mb-8 ">
               Drop your images here. No signup required.
             </p>
           </div>
