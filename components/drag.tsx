@@ -19,8 +19,7 @@ export default function FileUploader() {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
-    accept: { "image/*": [".png", ".jpg", ".jpeg", ".gif"] }, // Accepts images
-    multiple: true, // Allow multiple files
+    accept: { "image/*": [".png", ".jpg", ".jpeg", ".gif"] },
   });
 
   return (

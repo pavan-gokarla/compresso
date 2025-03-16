@@ -6,7 +6,9 @@ interface FileContextType {
   files: File[];
   setFiles: React.Dispatch<React.SetStateAction<File[]>>;
 }
-const FileContext = createContext<FileContextType | undefined>(undefined);
+export const FileContext = createContext<FileContextType | undefined>(
+  undefined
+);
 
 export const FileProvider = ({ children }: { children: ReactNode }) => {
   const [files, setFiles] = useState<File[]>([]);
@@ -19,6 +21,7 @@ export const FileProvider = ({ children }: { children: ReactNode }) => {
 
 export const useFileContext = () => {
   const context = useContext(FileContext);
+
   if (!context) {
     throw new Error("useFileContext must be used within a FileProvider");
   }
