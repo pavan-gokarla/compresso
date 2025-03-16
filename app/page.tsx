@@ -3,9 +3,17 @@
 import React from "react";
 import { Upload, ArrowRight } from "lucide-react";
 import FileUploader from "@/components/drag";
-import { FileProvider } from "@/components/FileContext";
+import { FileProvider, useFileContext } from "@/components/FileContext";
+import { Toaster, toast } from "sonner";
 
 function App() {
+  const { files } = useFileContext();
+
+  const navigateTo = () => {
+    if (files.length === 0) {
+      toast("Please Add Files");
+    }
+  };
   return (
     <FileProvider>
       <div className="min-h-screen bg-black text-white">
@@ -34,12 +42,16 @@ function App() {
                 <p className="text-gray-400 text-sm">Max File Size</p>
               </div>
             </div>
-            <button className="cursor-pointer mt-12 group px-8 py-4 bg-white text-black rounded-lg font-semibold flex items-center gap-2 hover:bg-gray-100 transition-colors">
+            <button
+              onClick={navigateTo}
+              className="cursor-pointer mt-12 group px-8 py-4 bg-white text-black rounded-lg font-semibold flex items-center gap-2 hover:bg-gray-100 transition-colors"
+            >
               Start Compressing
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform " />
             </button>
           </div>
         </div>
+        <Toaster richColors closeButton />
       </div>
     </FileProvider>
   );
